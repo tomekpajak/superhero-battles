@@ -1,0 +1,7 @@
+{
+    "dotnet-test-explorer.testProjectPath": "**/*Tests.@(csproj|vbproj|fsproj)",
+    "vssolution.altSolutionFolders": [
+        "./src/backend",
+        "tests"
+    ]
+}

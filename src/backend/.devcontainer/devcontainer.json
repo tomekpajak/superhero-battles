@@ -1,0 +1,21 @@
+{
+	"name": "shb-api",
+	"dockerComposeFile": ["../../../docker-compose.yml"],
+	"service": "api-service",
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	"extensions": [
+		"ms-dotnettools.csharp",
+		"leopotam.csharpfixformat",
+		"streetsidesoftware.code-spell-checker",
+		"alefragnani.numbered-bookmarks",
+		"fernandoescolar.vscode-solution-explorer",
+		"wakatime.vscode-wakatime",
+		"ms-vscode.vs-keybindings",
+		"ms-azuretools.vscode-docker",
+		"k--kato.docomment"
+	],
+	"workspaceFolder": "/workspace/src/backend",
+	"shutdownAction": "none"
+}

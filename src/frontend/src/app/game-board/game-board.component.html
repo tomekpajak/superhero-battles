@@ -1,0 +1,18 @@
+<div class="container">
+    <div fxLayout="row" 
+         fxLayout.xs="column" 
+         fxLayoutAlign="space-evenly stretch" >
+        <sh-player 
+            #p1
+            [player]="player1">
+        </sh-player>
+        <sh-player 
+            #p2
+            [player]="player2">
+        </sh-player>    
+    </div>  
+    <sh-control-panel 
+        [game]="game"
+        (playTurnEvent)="p1.playTurn(); p2.playTurn();">    
+    </sh-control-panel>
+</div>

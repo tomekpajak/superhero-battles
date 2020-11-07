@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+    web-service:
+        image: shb.web.dev.image
+        container_name: shb.web.dev.container        
+        build:
+            context: ./src/frontend  
+            dockerfile: Dockerfile
+        environment:
+            - NODE_ENV=development
+        depends_on:
+            - proxy-service
+            - api-service            
+        ports:
+            - 4200:4200
+        volumes:
+            - .:/workspace:cached
+            - ./src/frontend:/app
+            - /app/node_modules
+    api-service:
+        image: shb.api.dev.image
+        container_name: shb.api.dev.container
+        build:
+            args:
+                - BUILD_CONFIGURATION=Debug
+            context: ./src/backend
+            dockerfile: Dockerfile
+        environment:  
+            - ASPNETCORE_ENVIRONMENT=Development          
+            - DOTNET_USE_POLLING_FILE_WATCHER=true            
+        depends_on:
+            - proxy-service
+            - db-service
+        ports:
+            - 5000:5000
+        volumes:
+            - .:/workspace:cached
+            - ./src/backend:/src
+    db-service:
+        image: mcr.microsoft.com/mssql/server
+        container_name: shb.db.container
+        environment:            
+            - ACCEPT_EULA=Y
+            - MSSQL_PID=${DB_MSSQL_PID}
+            - SA_PASSWORD=${DB_SA_PASSWORD}
+        ports:
+            - 1433:1433        
+        volumes:
+            - db-data:/var/opt/mssql
+    proxy-service:
+        image: shb.proxy.dev.image
+        container_name: shb.proxy.dev.container         
+        build: 
+            context: ./src/nginx
+            dockerfile: Dockerfile
+        ports: 
+            - 80:80    
+        restart: always
+volumes:
+    db-data:                

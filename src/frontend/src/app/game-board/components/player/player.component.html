@@ -1,0 +1,37 @@
+<div 
+  class="container"
+  *ngIf="isVisible">
+  <mat-card      
+    [class.winner]="isWinner">
+    <mat-card-title>
+      {{player.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span>Wins: {{wins}}</span>
+    </mat-card-subtitle>    
+    <mat-card-subtitle>
+      <span>Attack: {{card ? card.attack : ''}}</span>
+      <span>Defence: {{card ? card.defence : ''}}</span>
+    </mat-card-subtitle>
+    <mat-card-content>
+      {{card ? card.name : ''}}
+    </mat-card-content>    
+    <mat-card-actions 
+      *ngIf="player.type === playerTypeEnum.Human">
+      <button 
+        mat-raised-button
+        color="basic"
+        [disabled]="isDisabledActions"
+        (click)="getRandomCard()">
+        Random card
+      </button>
+      <button 
+        mat-raised-button
+        color="basic"
+        [disabled]="true"
+        (click)="getChooseCard()">
+        Choose card
+      </button>
+    </mat-card-actions>
+  </mat-card> 
+</div>

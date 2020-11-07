@@ -1,0 +1,15 @@
+.container {
+    .winner {
+        background-color: #673ab7;
+    }
+    
+    mat-card {
+        mat-card-subtitle {
+            span {
+                display: block;
+            }
+        }
+    }
+}
+
+

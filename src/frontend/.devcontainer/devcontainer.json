@@ -1,0 +1,32 @@
+{
+	"name": "shb-frontend",
+	"dockerComposeFile": ["../../../docker-compose.yml"],
+	"service": "front",
+	"appPort": [
+		4200
+	],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+	"extensions": [
+		"rbbit.typescript-hero",
+		"angular.ng-template",
+		"coenraads.bracket-pair-colorizer-2",
+		"mikael.angular-beastcode",
+		"pmneo.tsimporter",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"msjsdiag.debugger-for-chrome",
+		"ritwickdey.live-sass",
+		"christian-kohler.path-intellisense",
+		"naumovs.color-highlight",
+		"zignd.html-css-class-completion",
+		"visualstudioexptteam.vscodeintellicode",
+		"stylelint.vscode-stylelint",
+		"wakatime.vscode-wakatime",
+		"pranaygp.vscode-css-peek"
+	],
+	"postCreateCommand": "yarn",
+	"shutdownAction": "none",	
+	"workspaceFolder": "/workspace/src/frontend"
+}
